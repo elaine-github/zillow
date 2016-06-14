@@ -50,7 +50,7 @@ public class SolutionTest {
     @Test
     public void testInputWithInvalidChar() throws Exception {
         mExpectedEx.expect(NumberFormatException.class);
-        mExpectedEx.expectMessage("For input string: ");
+        mExpectedEx.expectMessage("Invalid character");
         Solution s = new Solution();
         s.stringToLong("1a09");
     }
@@ -72,7 +72,7 @@ public class SolutionTest {
     @Test
     public void testInputLargerThanMaxValue() throws Exception {
         mExpectedEx.expect(NumberFormatException.class);
-        mExpectedEx.expectMessage("For input string: ");
+        mExpectedEx.expectMessage("Out of range");
         Solution s = new Solution();
         s.stringToLong("9223372036854775808");
     }
@@ -80,7 +80,7 @@ public class SolutionTest {
     @Test
     public void testInputSmallerThanMinValue() throws Exception {
         mExpectedEx.expect(NumberFormatException.class);
-        mExpectedEx.expectMessage("For input string: ");
+        mExpectedEx.expectMessage("Out of range");
         Solution s = new Solution();
         s.stringToLong("-9223372036854775809");
     }

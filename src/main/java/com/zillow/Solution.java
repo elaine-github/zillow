@@ -1,4 +1,5 @@
 package com.zillow;
+
 public class Solution {
     public long stringToLong(String s) {
         if (s == null) throw new NumberFormatException("null");
@@ -11,18 +12,15 @@ public class Solution {
             if (Character.isDigit(chars[i])) {
                 long newVal = 10 * val + sign * Character.digit(chars[i], 10);
                 if ((sign == 1 && newVal < val) || (sign == -1 && newVal > val))
-                    throw new NumberFormatException("For input string: " + s);
+                    throw new NumberFormatException("Out of range for input string: " + s);
                 val = newVal;
             } else {
                 if (i != 0 || (chars[i] != '-' && chars[i] != '+'))
-                    throw new NumberFormatException("For input string: " + s);
+                    throw new NumberFormatException("Invalid character for input string: " + s);
                 if (chars[i] == '-') sign = -1;
             }
         }
 
         return val;
-    }
-    public static void  main(String[] args){
-
     }
 }
